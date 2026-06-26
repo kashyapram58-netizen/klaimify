@@ -12,7 +12,7 @@
   "issue_date",
   "due_date",
   "return_date",
-  "select",
+  "status",
   "fine_amount",
   "credit_amount"
  ],
@@ -59,12 +59,6 @@
    "label": "Return Date"
   },
   {
-   "fieldname": "select",
-   "fieldtype": "Select",
-   "label": "Select",
-   "options": "Issued\nReturned\nOverdue"
-  },
-  {
    "fieldname": "fine_amount",
    "fieldtype": "Currency",
    "label": "Fine Amount"
@@ -73,13 +67,19 @@
    "fieldname": "credit_amount",
    "fieldtype": "Currency",
    "label": "Credit Amount"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Issued\nReturned\nOverdue"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-26 22:08:32.129056",
+ "modified": "2026-06-26 22:33:09.525120",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Transaction",
