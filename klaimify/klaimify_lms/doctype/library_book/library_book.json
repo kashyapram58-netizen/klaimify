@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2026-06-26 21:21:37.966617",
  "doctype": "DocType",
@@ -7,7 +8,7 @@
  "field_order": [
   "book_name",
   "author",
-  "data",
+  "isbn",
   "category",
   "copies"
  ],
@@ -25,11 +26,6 @@
    "label": "Author"
   },
   {
-   "fieldname": "data",
-   "fieldtype": "Data",
-   "label": "ISBN"
-  },
-  {
    "fieldname": "category",
    "fieldtype": "Link",
    "label": "Category",
@@ -40,12 +36,17 @@
    "fieldtype": "Link",
    "label": "Copies",
    "options": "Library Book Copy"
+  },
+  {
+   "fieldname": "isbn",
+   "fieldtype": "Data",
+   "label": "ISBN"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-26 23:12:25.834459",
+ "modified": "2026-06-26 23:18:14.209339",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Book",

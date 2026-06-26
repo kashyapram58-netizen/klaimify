@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2026-06-26 21:24:53.812757",
  "doctype": "DocType",
@@ -23,7 +24,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-26 22:08:39.028741",
+ "modified": "2026-06-26 23:16:39.491870",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Category",
