@@ -33,7 +33,7 @@
   },
   {
    "fieldname": "copies",
-   "fieldtype": "Link",
+   "fieldtype": "Table",
    "label": "Copies",
    "options": "Library Book Copy"
   },
@@ -46,7 +46,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-26 23:18:14.209339",
+ "modified": "2026-06-26 23:35:06.328280",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Book",
