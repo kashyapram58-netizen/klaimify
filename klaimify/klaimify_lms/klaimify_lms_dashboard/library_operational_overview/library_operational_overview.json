@@ -1,0 +1,29 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Active Loans",
+   "width": "Full"
+  },
+  {
+   "chart": "Overdue Books",
+   "width": "Full"
+  },
+  {
+   "chart": "Fine Collected",
+   "width": "Full"
+  }
+ ],
+ "creation": "2026-06-26 22:38:54.713540",
+ "dashboard_name": "Library Operational Overview",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2026-06-26 22:50:56.981434",
+ "modified_by": "Administrator",
+ "module": "Klaimify LMS",
+ "name": "Library Operational Overview",
+ "owner": "Administrator"
+}

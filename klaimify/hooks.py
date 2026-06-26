@@ -148,13 +148,13 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"klaimify.tasks.all"
 # 	],
-# 	"daily": [
-# 		"klaimify.tasks.daily"
-# 	],
+	"daily": [
+		"klaimify.tasks.generate_overdue_fines"
+	]
 # 	"hourly": [
 # 		"klaimify.tasks.hourly"
 # 	],
@@ -164,7 +164,7 @@ app_license = "mit"
 # 	"monthly": [
 # 		"klaimify.tasks.monthly"
 # 	],
-# }
+}
 
 # Testing
 # -------
