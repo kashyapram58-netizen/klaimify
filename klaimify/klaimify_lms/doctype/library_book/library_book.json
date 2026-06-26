@@ -5,18 +5,47 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_dhgy"
+  "book_name",
+  "author",
+  "data",
+  "category",
+  "copies"
  ],
  "fields": [
   {
-   "fieldname": "section_break_dhgy",
-   "fieldtype": "Section Break"
+   "fieldname": "book_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Book Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Data",
+   "label": "Author"
+  },
+  {
+   "fieldname": "data",
+   "fieldtype": "Data",
+   "label": "ISBN"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Library Category"
+  },
+  {
+   "fieldname": "copies",
+   "fieldtype": "Link",
+   "label": "Copies",
+   "options": "Library Book Copy"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-26 21:21:37.966617",
+ "modified": "2026-06-26 23:12:25.834459",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Book",
