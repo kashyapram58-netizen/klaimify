@@ -38,3 +38,11 @@ class LibraryTransaction(Document):
         member = frappe.get_doc("Library Member", self.member)
         if member.membership_end_date < today():
             frappe.throw("Membership has expired. Please renew to issue books.")
+
+    def after_save(self):
+        # 3. Handle Inventory Updates (Simplified for Standalone DocType)
+        # We no longer need to loop through the parent book!
+        if self.status == 'Issued':
+            frappe.db.set_value("Library Book Copy", self.book_copy, "status", "Issued")
+        elif self.status == 'Returned':
+            frappe.db.set_value("Library Book Copy", self.book_copy, "status", "Available")        
