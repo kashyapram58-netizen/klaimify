@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:LIB-MEM-{member_name}-{####}",
  "creation": "2026-06-26 21:12:00.310215",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -53,10 +54,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-26 23:16:51.195558",
+ "modified": "2026-06-27 14:30:57.180584",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Member",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -74,7 +76,9 @@
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "member_name"
 }

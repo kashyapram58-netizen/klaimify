@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:LIB-FIN-{member}-{YY}-{MM}-{DD}",
  "creation": "2026-06-26 21:40:05.134871",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -12,6 +13,8 @@
   "transaction",
   "amount",
   "status",
+  "is_waived",
+  "paid_amount",
   "accounting_entry"
  ],
  "fields": [
@@ -51,22 +54,37 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Paid\nUnpaid"
+   "options": "Paid\nUnpaid\nPartially Paid"
   },
   {
    "fieldname": "accounting_entry",
    "fieldtype": "Data",
    "label": "Accounting Entry"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Paid Amount ",
+   "precision": "7"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_waived",
+   "fieldtype": "Check",
+   "label": "Waived",
+   "options": "Paid\nUnpaid"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-26 23:16:12.569603",
+ "modified": "2026-06-27 17:13:13.879287",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Fine",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -85,7 +103,9 @@
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "member"
 }

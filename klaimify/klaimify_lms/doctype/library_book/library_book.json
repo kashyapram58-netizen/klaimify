@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:LIB-BK-{book_name}",
  "creation": "2026-06-26 21:21:37.966617",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,8 +10,7 @@
   "book_name",
   "author",
   "isbn",
-  "category",
-  "copies"
+  "category"
  ],
  "fields": [
   {
@@ -32,12 +32,6 @@
    "options": "Library Category"
   },
   {
-   "fieldname": "copies",
-   "fieldtype": "Table",
-   "label": "Copies",
-   "options": "Library Book Copy"
-  },
-  {
    "fieldname": "isbn",
    "fieldtype": "Data",
    "label": "ISBN"
@@ -46,10 +40,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-26 23:35:06.328280",
+ "modified": "2026-06-27 14:31:41.312899",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Book",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -67,7 +62,9 @@
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "book_name"
 }

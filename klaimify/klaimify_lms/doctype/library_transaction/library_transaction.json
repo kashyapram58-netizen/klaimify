@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:LIB-TR-{YY}-{MM}-{DD}-{####}",
  "creation": "2026-06-26 21:31:51.142238",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,6 +11,7 @@
   "amended_from",
   "member",
   "book",
+  "book_copy",
   "issue_date",
   "due_date",
   "return_date",
@@ -74,16 +76,28 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Issued\nReturned\nOverdue"
+  },
+  {
+   "fieldname": "book_copy",
+   "fieldtype": "Link",
+   "label": "Book Copy",
+   "options": "Library Book Copy"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2026-06-26 23:16:25.398471",
+ "links": [
+  {
+   "link_doctype": "Library Transaction",
+   "link_fieldname": "member"
+  }
+ ],
+ "modified": "2026-06-27 14:36:53.419723",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Transaction",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
