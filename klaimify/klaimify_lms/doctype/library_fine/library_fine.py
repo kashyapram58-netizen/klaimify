@@ -30,8 +30,8 @@ class LibraryFine(Document):
                 self.create_journal_entry("Payment Received", self.paid_amount)
 
     def create_journal_entry(self, title, amount):
-        income_account = "Income - K"
-        cash_account = "Cash In Hand - K" # Use a cash/bank account here
+        income_account = "Fine - KD"
+        cash_account = "Cash - KD" # Use a cash/bank account here
         # Create Journal Entry
         je = frappe.get_doc({
             "doctype": "Journal Entry",
@@ -43,8 +43,8 @@ class LibraryFine(Document):
                     "account": income_account,
                     "credit_in_account_currency": amount if title == "Fine Raised" else 0,
                     "debit_in_account_currency": 0 if title == "Fine Raised" else amount,
-                    "party_type": "Customer",
-                    "party": self.member, 
+                    # "party_type": "Customer",
+                    # "party": self.member, 
                 },
                 {
                     "account": cash_account, 
