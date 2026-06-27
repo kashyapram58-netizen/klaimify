@@ -1,11 +1,12 @@
-# Copyright (c) 2026, Ram and contributors
-# For license information, please see license.txt
-
 import frappe
 from frappe.model.document import Document
 from frappe.utils import add_days, today
 
 class LibraryTransaction(Document):
+    def validate(self):
+        # Always call validation first to prevent invalid transactions
+        self.validate_membership()
+
     def before_save(self):
         # 1. Automate Due Date (14 days)
         if self.issue_date and not self.due_date:
@@ -15,16 +16,21 @@ class LibraryTransaction(Document):
         if not self.status:
             self.status = 'Issued'
 
-    def after_save(self):
-        # 3. Handle Inventory Updates
+    def on_submit(self):
+        # 3. Handle Inventory Updates via Standalone DocType
         if self.status == 'Issued':
-            self.update_book_copy_status(self.book, self.book_copy, 'Issued')
-        elif self.status == 'Returned':
-            self.update_book_copy_status(self.book, self.book_copy, 'Available')
+            self.update_book_copy_status(self.book_copy, 'Issued')
+            
+    def on_cancel(self):
+        # 4. Revert inventory status if transaction is cancelled
+        self.update_book_copy_status(self.book_copy, 'Available')
 
-    def update_book_copy_status(self, book_name, book_copy, new_status):
-        book = frappe.get_doc("Library Book", book_name)
-        for copy in book.copies:
-            if copy.book_copy == book_copy:
-                copy.status = new_status
-        book.save()
+    def update_book_copy_status(self, copy_id, new_status):
+        # Direct database update. No need to loop through the parent book!
+        frappe.db.set_value("Library Book Copy", copy_id, "status", new_status)
+
+    def validate_membership(self):
+        # Check membership status
+        member = frappe.get_doc("Library Member", self.member)
+        if member.membership_end_date < today():
+            frappe.throw("Membership has expired. Please renew to issue books.")
