@@ -54,7 +54,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Paid\nUnpaid"
+   "options": "Paid\nUnpaid\nPartially Paid"
   },
   {
    "fieldname": "accounting_entry",
@@ -80,7 +80,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-27 16:35:24.040388",
+ "modified": "2026-06-27 17:13:13.879287",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Fine",
