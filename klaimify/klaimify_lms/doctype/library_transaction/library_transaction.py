@@ -45,4 +45,19 @@ class LibraryTransaction(Document):
         if self.status == 'Issued':
             frappe.db.set_value("Library Book Copy", self.book_copy, "status", "Issued")
         elif self.status == 'Returned':
-            frappe.db.set_value("Library Book Copy", self.book_copy, "status", "Available")        
+            frappe.db.set_value("Library Book Copy", self.book_copy, "status", "Available")
+
+
+    def mark_overdue_transactions():
+        # 1. Find all issued books where due_date is in the past
+        overdue_transactions = frappe.get_all("Library Transaction", filters={
+            "status": "Issued",
+            "due_date": ["<", today()]
+        }, fields=["name"])
+
+        # 2. Update their status to 'Overdue'
+        for transaction in overdue_transactions:
+            frappe.db.set_value("Library Transaction", transaction.name, "status", "Overdue")
+        
+        # 3. Commit changes to the database
+        frappe.db.commit()                
