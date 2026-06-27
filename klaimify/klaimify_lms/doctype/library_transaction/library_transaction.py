@@ -4,6 +4,10 @@ from frappe.utils import add_days, today
 
 class LibraryTransaction(Document):
     def validate(self):
+        if self.type == "Issue":
+            copy_status = frappe.db.get_value("Library Book Copy", self.book_copy, "status")
+            if copy_status != "Available":
+                frappe.throw(f"This copy ({self.book_copy}) is currently {copy_status} and cannot be issued.")
         # Always call validation first to prevent invalid transactions
         self.validate_membership()
 
