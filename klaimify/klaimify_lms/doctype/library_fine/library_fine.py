@@ -30,6 +30,8 @@ class LibraryFine(Document):
                 self.create_journal_entry("Payment Received", self.paid_amount)
 
     def create_journal_entry(self, title, amount):
+        income_account = "Income - K"
+        cash_account = "Cash In Hand - K" # Use a cash/bank account here
         # Create Journal Entry
         je = frappe.get_doc({
             "doctype": "Journal Entry",
@@ -38,14 +40,14 @@ class LibraryFine(Document):
             "remark": f"{title} for Fine: {self.name}", # Crucial for finding the entry later
             "accounts": [
                 {
-                    "account": "Library Fine Income - YOUR_COMPANY_CODE",
+                    "account": income_account,
                     "credit_in_account_currency": amount if title == "Fine Raised" else 0,
                     "debit_in_account_currency": 0 if title == "Fine Raised" else amount,
                     "party_type": "Customer",
                     "party": self.member, 
                 },
                 {
-                    "account": "Cash - YOUR_COMPANY_CODE", 
+                    "account": cash_account, 
                     "debit_in_account_currency": amount if title == "Fine Raised" else 0,
                     "credit_in_account_currency": 0 if title == "Fine Raised" else amount,
                 }
