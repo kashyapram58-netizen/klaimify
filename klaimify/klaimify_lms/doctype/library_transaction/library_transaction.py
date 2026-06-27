@@ -18,13 +18,13 @@ class LibraryTransaction(Document):
     def after_save(self):
         # 3. Handle Inventory Updates
         if self.status == 'Issued':
-            self.update_book_copy_status(self.book, self.copy_id, 'Issued')
+            self.update_book_copy_status(self.book, self.book_copy, 'Issued')
         elif self.status == 'Returned':
-            self.update_book_copy_status(self.book, self.copy_id, 'Available')
+            self.update_book_copy_status(self.book, self.book_copy, 'Available')
 
-    def update_book_copy_status(self, book_name, copy_id, new_status):
+    def update_book_copy_status(self, book_name, book_copy, new_status):
         book = frappe.get_doc("Library Book", book_name)
         for copy in book.copies:
-            if copy.copy_id == copy_id:
+            if copy.book_copy == book_copy:
                 copy.status = new_status
         book.save()
