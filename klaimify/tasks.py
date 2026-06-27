@@ -2,27 +2,35 @@ import frappe
 from frappe.utils import today, date_diff
 
 def generate_overdue_fines():
-    # Find all transactions that are 'Issued', past the due_date, and not yet returned
+    # 1. Fetch only what we need in one query
     overdue_transactions = frappe.get_all(
         "Library Transaction",
         filters={
             "status": "Issued",
             "due_date": ["<", today()]
-        }
+        },
+        fields=["name", "member", "due_date"]
     )
     
+    daily_rate = 10  # Define your fine per day
+    
     for tx in overdue_transactions:
-        # Check if fine already exists to avoid duplicates
-        existing_fine = frappe.db.exists("Library Fine", {"transaction": tx.name})
-        
-        if not existing_fine:
-            # Create a new Fine record
+        # Check if fine already exists
+        if not frappe.db.exists("Library Fine", {"transaction": tx.name}):
+            # 2. Calculate dynamic fine
+            days_overdue = date_diff(today(), tx.due_date)
+            total_fine = days_overdue * daily_rate
+            
+            # 3. Create Fine record
             fine = frappe.get_doc({
                 "doctype": "Library Fine",
-                "member": frappe.db.get_value("Library Transaction", tx.name, "member"),
+                "member": tx.member,
                 "transaction": tx.name,
-                "amount": 50, # Example: 50 units per day or fixed
+                "amount": total_fine,
                 "status": "Unpaid"
             })
-            fine.insert()
-            frappe.db.commit()
+            # Use ignore_permissions=True to ensure system can create it
+            fine.insert(ignore_permissions=True)
+            
+    # Commit once at the end
+    frappe.db.commit()
