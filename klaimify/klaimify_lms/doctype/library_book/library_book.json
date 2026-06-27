@@ -9,8 +9,7 @@
   "book_name",
   "author",
   "isbn",
-  "category",
-  "copies"
+  "category"
  ],
  "fields": [
   {
@@ -32,12 +31,6 @@
    "options": "Library Category"
   },
   {
-   "fieldname": "copies",
-   "fieldtype": "Table",
-   "label": "Copies",
-   "options": "Library Book Copy"
-  },
-  {
    "fieldname": "isbn",
    "fieldtype": "Data",
    "label": "ISBN"
@@ -46,7 +39,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-26 23:35:06.328280",
+ "modified": "2026-06-27 12:13:15.429449",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Book",
