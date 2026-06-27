@@ -13,6 +13,8 @@
   "transaction",
   "amount",
   "status",
+  "is_waved",
+  "paid_amount",
   "accounting_entry"
  ],
  "fields": [
@@ -58,13 +60,27 @@
    "fieldname": "accounting_entry",
    "fieldtype": "Data",
    "label": "Accounting Entry"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_waved",
+   "fieldtype": "Check",
+   "label": "Waived",
+   "options": "Paid\nUnpaid"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Paid Amount ",
+   "precision": "7"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-27 14:31:20.533145",
+ "modified": "2026-06-27 15:30:21.227492",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Fine",
