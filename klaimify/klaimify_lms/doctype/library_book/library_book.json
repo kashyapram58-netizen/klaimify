@@ -40,7 +40,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-06-27 14:10:07.910949",
+ "modified": "2026-06-27 14:31:41.312899",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Book",
@@ -62,7 +62,9 @@
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "book_name"
 }

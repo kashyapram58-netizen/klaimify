@@ -81,7 +81,7 @@
    "fieldname": "book_copy",
    "fieldtype": "Link",
    "label": "Book Copy",
-   "options": "Library Book"
+   "options": "Library Book Copy"
   }
  ],
  "grid_page_length": 50,
@@ -93,7 +93,7 @@
    "link_fieldname": "member"
   }
  ],
- "modified": "2026-06-27 13:49:37.579865",
+ "modified": "2026-06-27 14:36:53.419723",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Transaction",

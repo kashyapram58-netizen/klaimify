@@ -1,10 +1,10 @@
 import frappe
 from frappe.model.document import Document
-from frappe.utils import add_days, today
+from frappe.utils import add_days, today, getdate
 
 class LibraryTransaction(Document):
     def validate(self):
-        if self.type == "Issue":
+        if self.status == "Issued":
             copy_status = frappe.db.get_value("Library Book Copy", self.book_copy, "status")
             if copy_status != "Available":
                 frappe.throw(f"This copy ({self.book_copy}) is currently {copy_status} and cannot be issued.")
@@ -36,7 +36,7 @@ class LibraryTransaction(Document):
     def validate_membership(self):
         # Check membership status
         member = frappe.get_doc("Library Member", self.member)
-        if member.membership_end_date < today():
+        if member.validity_date < getdate(today()):
             frappe.throw("Membership has expired. Please renew to issue books.")
 
     def after_save(self):
