@@ -87,8 +87,13 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2026-06-27 12:18:44.607185",
+ "links": [
+  {
+   "link_doctype": "Library Transaction",
+   "link_fieldname": "member"
+  }
+ ],
+ "modified": "2026-06-27 13:49:37.579865",
  "modified_by": "Administrator",
  "module": "Klaimify LMS",
  "name": "Library Transaction",
